@@ -1,0 +1,38 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "Test application for kt.team",
+  "main": "app.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmilAbdullin/TODO.git"
+  },
+  "keywords": [
+    "vanilla",
+    "js",
+    "webpack"
+  ],
+  "author": "Emil Abdullin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmilAbdullin/TODO/issues"
+  },
+  "homepage": "https://github.com/EmilAbdullin/TODO#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.4.2",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^1.1.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "dependencies": {
+    "firebase": "^7.6.2",
+    "firebase-admin": "^8.9.0"
+  }
+}

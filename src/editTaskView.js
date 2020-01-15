@@ -1,0 +1,1 @@
+const contentDiv = document.getElementById('app');
