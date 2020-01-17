@@ -1,8 +1,8 @@
 import * as firebase from 'firebase/app'
 import 'firebase/firestore'
 
-export class Firebase {
-  
+
+export class Firebase{
     static initFirebaseApp(){
         firebase.initializeApp({
             apiKey: "AIzaSyDgVpXT1Hn5doEMLnk4AXv9PnHR-Nb-e4U",
@@ -14,6 +14,8 @@ export class Firebase {
     static initDataBase(){
         return firebase.firestore();
     }
+}
+
 
 // db.collection('tasks').get()
 // .then((q) => {
@@ -22,4 +24,3 @@ export class Firebase {
 //     })
 // })
 
-}
