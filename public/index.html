@@ -5,17 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href=https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css>
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap&subset=cyrillic" rel="stylesheet">
+    <title>Todo Application</title>
 </head>
 <body>
     <div id="app">
         <div id="task-container">
-            <form>
-                <input type="text" name="input-task" id="input-task">
-                <button type="submit" id="add-task">Add card</button>
-                <div class="delete-task"><i class="fa fa-times"></i></div>
+            <form id="task-form">
+                <textarea class="shadow" placeholder="Enter a title for this card..." name="input-task" id="input-task"></textarea>
+                <button  class="shadow" type="submit" id="add-task">Add card</button>
+                <div id="delete-task-input-val">&#10006;</div>
             </form>
+            <div class="task-list-container">
+                <nav>
+                    <span>Задачи</span>
+                    <i class="fa fa-sort fa-2x" id="sort-list"></i>
+                </nav>
+                <ul id="task-list"></ul>
+            </div>
+        </div>
+        <div id="pagination">
+            
         </div>
     </div>
-<script type="text/javascript" src="bundle.80c2fc42e3a63653bffe.js"></script></body>
+<script type="text/javascript" src="main.bundle.js"></script></body>
 </html>

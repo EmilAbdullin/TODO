@@ -1,7 +1,7 @@
 import {getTasksFromLocalStorage} from './task'
 import {Task} from './task'
 import { _URL } from './url';
-
+import {Loader} from './loader'
 
 
 export class Pagination {
@@ -38,25 +38,17 @@ export class Pagination {
                 document.querySelector(`[data-page-id="${curPage}"]`).classList.add('active-page');
             }
         }
-      
-        // if(document.querySelector(`.active-page`)!==null){
-        //     document.querySelector(`.active-page`).classList.remove('active-page');
-        //     document.querySelector(`[data-page-id="1"]`).classList.add('active-page');
-        // }else{
-        //     document.querySelector(`[data-page-id="1"]`).classList.add('active-page');
-        // }
     }
 }
 
-function activatePage(){
-    let currentPage = this.getAttribute('data-page-id');
-    window.location = `/?page=${currentPage}`
-    localStorage.setItem('currentPage',currentPage);
-    document.querySelector(`.active-page`).classList.remove('active-page')
-    document.querySelector(`[data-page-id="${currentPage}"]`).classList.add('active-page')
-    history.pushState({currentPage},`Page ${currentPage}`,`/page/${currentPage}`);
-    Task.renderTaskList(currentPage);
-    
+function activatePage(){  
+        let currentPage = this.getAttribute('data-page-id');
+        history.pushState(currentPage,`Page ${currentPage}`,`/tasks?page=${currentPage}`);
+        localStorage.setItem('currentPage',currentPage);
+        document.querySelector(`.active-page`).classList.remove('active-page')
+        document.querySelector(`[data-page-id="${currentPage}"]`).classList.add('active-page')
+        let haveLoader = true;
+        Task.renderTaskList(haveLoader);
 }
 
 export function changePage(curPage){

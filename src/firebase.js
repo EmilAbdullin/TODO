@@ -1,7 +1,6 @@
 import * as firebase from 'firebase/app'
 import 'firebase/firestore'
 
-
 export class Firebase{
     static initFirebaseApp(){
         firebase.initializeApp({
@@ -15,12 +14,4 @@ export class Firebase{
         return firebase.firestore();
     }
 }
-
-
-// db.collection('tasks').get()
-// .then((q) => {
-//     q.forEach(item =>{
-//         console.log(item.data());
-//     })
-// })
 

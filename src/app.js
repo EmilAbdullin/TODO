@@ -1,18 +1,22 @@
 import {Task} from './task'
+import {getAllTasksFromFirebase} from './task'
 import {Firebase} from './firebase'
 import {Pagination} from './pagination'
 import './styles/styles.css'
+import { _URL } from './url'
  
 window.addEventListener('beforeunload',Firebase.initFirebaseApp());
+if(localStorage.getItem('tasks') === null){
+    getAllTasksFromFirebase();
+}
+_URL.checkURLForTaskPage();
 Pagination.renderPagination();
 Pagination.initActivePagaination();
 Task.renderTaskList();
+
 const taskForm = document.getElementById('task-form');
 const inputForm = taskForm.querySelector('#input-task');
 const buttonSort = document.getElementById('sort-list');
-
-
-
 
 taskForm.addEventListener('submit',submitFormHandler)
 inputForm.addEventListener('input',function(){
@@ -27,8 +31,14 @@ taskForm.querySelector('#delete-task-input-val').addEventListener('click',functi
     taskForm.querySelector('#delete-task-input-val').style.opacity = '0';
     taskForm.querySelector('#delete-task-input-val').style.zIndex = '-2';
 })
+inputForm.addEventListener('keydown',(e)=>{
+    if(e.key === 'Enter'){
+        submitFormHandler(event);
+    }else{
+        return false;
+    }
+})
 buttonSort.addEventListener('click',Task.sortList);
-
 function submitFormHandler (event) {
     event.preventDefault();
     if(inputForm.value != ''){
@@ -44,20 +54,4 @@ function submitFormHandler (event) {
     }else{
         alert('Вы ничего не ввели');
     }
-
 }
-
-
-// const task = {
-//     title:'Первая задача',
-//     dateCreate:'16.01.2020',
-//     time:'14:35',
-//     status:'notCompleted'
-// }
-// db.collection('tasks').add(task)
- 
-
-// document.getElementById('add-task').addEventListener('click',function(e){
-//     e.preventDefault();
-//     history.pushState('any','Page 2','/pages/2');
-// })
