@@ -41,6 +41,8 @@ inputForm.addEventListener('keydown',(e)=>{
 buttonSort.addEventListener('click',Task.sortList);
 function submitFormHandler (event) {
     event.preventDefault();
+    taskForm.querySelector('#delete-task-input-val').style.opacity = '0';
+    taskForm.querySelector('#delete-task-input-val').style.zIndex = '-2';
     if(inputForm.value != ''){
         const task = {
             title:inputForm.value.trim(),

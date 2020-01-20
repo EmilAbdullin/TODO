@@ -15,6 +15,7 @@ export class Task {
             Pagination.renderPagination();
             Pagination.initActivePagaination();
             Task.renderTaskList();
+            
         })
         .catch(function(error) {
             console.error("Error writing document: ", error);

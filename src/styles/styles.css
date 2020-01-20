@@ -329,4 +329,25 @@ ul#task-list > li span{
 /*END LOADER*/
 
 
+/*MEDIA QUERIES*/
+
+@media screen and (max-width: 640px) {
+  
+  #task-container{
+    width:100%;
+    padding:0 15px;
+  }
+
+  #task-container form{
+    margin-top:15px;
+  }
+
+  #pagination {
+    bottom:15px;
+  }
+}
+
+/*MEDIA QUERIES*/
+
+
 
